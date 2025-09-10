@@ -22,7 +22,7 @@ public class User {
     private String username;
 
     @Column(nullable = false, length = 50)
-    private String surename;
+    private String surname;
 
     @Column(nullable = false,length = 3)
     private Integer age;
