@@ -18,6 +18,7 @@ public class AppController {
         while (true) {
             mainMenu.displayLogo();
             mainMenu.displayMenu();
+            mainMenu.optionsHandler();
             break;
         }
     }

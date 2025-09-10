@@ -1,7 +1,10 @@
 package sk.foxer.util;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Scanner;
 
+@Component
 public class InputUtil {
     private final Scanner scanner;
 
@@ -27,5 +30,10 @@ public class InputUtil {
     public String insertTelephone(){
         System.out.print("Enter your telephone: ");
         return scanner.nextLine();
+    }
+
+    public int choseOption(){
+        System.out.print("Choose an option: ");
+        return Integer.parseInt(scanner.nextLine());
     }
 }
