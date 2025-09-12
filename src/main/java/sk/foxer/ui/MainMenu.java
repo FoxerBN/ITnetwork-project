@@ -47,4 +47,8 @@ public class MainMenu {
                 """);
     }
 
+    public void space( ) {
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n");
+    }
+
 }

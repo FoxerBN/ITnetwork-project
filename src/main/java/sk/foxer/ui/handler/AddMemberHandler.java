@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import sk.foxer.controller.MenuHandler;
 import sk.foxer.model.User;
 import sk.foxer.service.UserService;
+import sk.foxer.ui.MainMenu;
 import sk.foxer.util.InputUtil;
 
 @Component
@@ -12,7 +13,7 @@ import sk.foxer.util.InputUtil;
 public class AddMemberHandler  implements MenuHandler {
     private final InputUtil inputUtil;
     private final UserService userService;
-
+    private final MainMenu mainMenu;
     @Override
     public void handle() {
         System.out.println("--- Let's create new member ---");
@@ -23,8 +24,10 @@ public class AddMemberHandler  implements MenuHandler {
         user.setTelephone(inputUtil.insertTelephone());
 
         User savedUser = userService.createUser(user);
-
-        System.out.println("New member created: " + savedUser.getUsername() + " " + savedUser.getSurname() +
-                ", age: " + savedUser.getAge() + ", telephone: " + savedUser.getTelephone());
+        mainMenu.space();
+        System.out.println("=== New member created ===" + "\nName: " + savedUser.getUsername() + " " +"\nSurname:"
+                + savedUser.getSurname() + "\nAge: " + savedUser.getAge() + ",\nTelephone: "
+                + savedUser.getTelephone() + "\n ========================");
+        mainMenu.displayMenu();
     }
 }
