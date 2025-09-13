@@ -18,7 +18,7 @@ public class AddMemberHandler  implements MenuHandler {
         System.out.println("--- Let's create new member ---");
         User user = new User();
         user.setUsername(inputUtil.insertName());
-        user.setSurname(inputUtil.insertSurename());
+        user.setSurname(inputUtil.insertSurname());
         user.setAge(inputUtil.insertAge());
         user.setTelephone(inputUtil.insertTelephone());
 

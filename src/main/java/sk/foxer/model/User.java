@@ -11,8 +11,6 @@ import java.time.temporal.ChronoUnit;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
 public class User {
 
     @Id
