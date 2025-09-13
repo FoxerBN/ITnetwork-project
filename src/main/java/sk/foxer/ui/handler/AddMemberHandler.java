@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import sk.foxer.controller.MenuHandler;
 import sk.foxer.model.User;
 import sk.foxer.service.UserService;
-import sk.foxer.ui.MainMenu;
+import sk.foxer.util.ColorConsole;
 import sk.foxer.util.InputUtil;
 
 @Component
@@ -13,7 +13,6 @@ import sk.foxer.util.InputUtil;
 public class AddMemberHandler  implements MenuHandler {
     private final InputUtil inputUtil;
     private final UserService userService;
-    private final MainMenu mainMenu;
     @Override
     public void handle() {
         System.out.println("--- Let's create new member ---");
@@ -24,10 +23,17 @@ public class AddMemberHandler  implements MenuHandler {
         user.setTelephone(inputUtil.insertTelephone());
 
         User savedUser = userService.createUser(user);
-        mainMenu.space();
-        System.out.println("=== New member created ===" + "\nName: " + savedUser.getUsername() + " " +"\nSurname:"
-                + savedUser.getSurname() + "\nAge: " + savedUser.getAge() + ",\nTelephone: "
-                + savedUser.getTelephone() + "\n ========================");
-        mainMenu.displayMenu();
+
+        System.out.println("\n".repeat(50));
+
+        System.out.println(ColorConsole.GREEN + "=== New member created ===" + ColorConsole.RESET);
+        System.out.println(ColorConsole.PURPLE + "Name: " + ColorConsole.YELLOW + savedUser.getUsername() + ColorConsole.RESET);
+        System.out.println(ColorConsole.PURPLE + "Surname: " + ColorConsole.YELLOW + savedUser.getSurname() + ColorConsole.RESET);
+        System.out.println(ColorConsole.PURPLE + "Age: " + ColorConsole.YELLOW + savedUser.getAge() + ColorConsole.RESET);
+        System.out.println(ColorConsole.PURPLE + "Telephone: " + ColorConsole.YELLOW + savedUser.getTelephone() + ColorConsole.RESET);
+        System.out.println(ColorConsole.GREEN + "========================" + ColorConsole.RESET);
+
+        inputUtil.continuePrompt();
+        System.out.println("\n".repeat(50));
     }
 }

@@ -34,9 +34,8 @@ public class AppController {
 
     public void start() {
         mainMenu.displayLogo();
-        mainMenu.displayMenu();
         while (true) {
-
+            mainMenu.displayMenu();
             int choice = inputUtil.choseOption();
 
             if (choice == 5) {

@@ -64,4 +64,15 @@ public class InputUtil {
         } while (true);
         return input;
     }
+
+    public void continuePrompt() {
+        System.out.print(ColorConsole.WHITE + "Press Enter to continue..." + ColorConsole.RESET);
+        try {
+            do {
+                System.in.read();
+            } while (System.in.available() > 0);
+        } catch (Exception e) {
+            scanner.nextLine();
+        }
+    }
 }
